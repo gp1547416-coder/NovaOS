@@ -1,4 +1,8 @@
-/* Update your existing #app-window style to include this */
+.phone-shell {
+    /* ... your other styles ... */
+    overflow: hidden; /* CRITICAL: Clips anything outside the shell */
+}
+
 #app-window {
     position: absolute; 
     top: 0; 
@@ -6,17 +10,20 @@
     width: 100%; 
     height: calc(100% - 50px);
     background: white; 
-    transform: translateY(100%); 
+    
+    /* Move it WAY further down than the phone height */
+    transform: translateY(200%); 
+    
     transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
     z-index: 10; 
     display: flex; 
     flex-direction: column;
-    /* This line ensures it stays hidden when closed */
-    visibility: hidden; 
+    
+    /* Completely hide it from the DOM rendering tree */
+    display: none; 
 }
 
 #app-window.open { 
+    display: flex; /* Bring it back to life */
     transform: translateY(0); 
-    visibility: visible;
 }
-
