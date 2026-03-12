@@ -1,5 +1,3 @@
-// Replace your openApp and closeApp functions with these:
-
 function openApp(name, url) {
     const win = document.getElementById('app-window');
     const frame = document.getElementById('app-frame');
@@ -7,10 +5,10 @@ function openApp(name, url) {
     frame.src = url;
     document.getElementById('window-title').innerText = name;
     
-    // 1. Make it visible first so the animation can play
-    win.style.visibility = "visible"; 
+    // 1. Set display to flex so it exists in the layout
+    win.style.display = "flex"; 
     
-    // 2. Small delay to trigger the CSS transition
+    // 2. Tiny delay to allow the browser to realize it's there before sliding
     setTimeout(() => {
         win.classList.add('open');
     }, 10);
@@ -19,12 +17,12 @@ function openApp(name, url) {
 function closeApp() {
     const win = document.getElementById('app-window');
     
-    // 1. Slide it down
+    // 1. Slide it way down
     win.classList.remove('open');
     
-    // 2. Wait for animation to finish (400ms), then hide it completely
+    // 2. After the 400ms slide, kill the display entirely
     setTimeout(() => {
-        win.style.visibility = "hidden";
+        win.style.display = "none";
         document.getElementById('app-frame').src = ''; 
     }, 400);
 }
