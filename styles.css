@@ -1,1 +1,22 @@
+/* Update your existing #app-window style to include this */
+#app-window {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: calc(100% - 50px);
+    background: white; 
+    transform: translateY(100%); 
+    transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+    z-index: 10; 
+    display: flex; 
+    flex-direction: column;
+    /* This line ensures it stays hidden when closed */
+    visibility: hidden; 
+}
+
+#app-window.open { 
+    transform: translateY(0); 
+    visibility: visible;
+}
 
