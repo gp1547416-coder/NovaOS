@@ -1,21 +1,121 @@
-<div class="emulator-container">
-  <div class="speaker"></div>
-  
-  <div class="screen">
-    <div class="status-bar">
-      <span>NovaOS</span>
-      <div class="status-icons">100% 🔋 12:00</div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaOS</title>
+    <style>
+        body {
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-    <div class="desktop" id="desktop">
-      <div class="app-icon" onclick="openApp('Settings')">⚙️<span>Settings</span></div>
-      <div class="app-icon" onclick="openApp('Browser')">🌐<span>Browser</span></div>
-    </div>
+        .phone-shell {
+            width: 320px;
+            height: 650px;
+            background: #1a1a1b;
+            border-radius: 40px;
+            border: 8px solid #333;
+            padding: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
 
-    <div class="nav-bar">
-      <div class="nav-btn">◀</div>
-      <div class="nav-btn" onclick="goHome()">●</div>
-      <div class="nav-btn">■</div>
+        .screen {
+            flex: 1;
+            background: linear-gradient(45deg, #1e3a8a, #581c87);
+            border-radius: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .status-bar {
+            padding: 15px 20px 5px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .desktop {
+            flex: 1;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-content: start;
+        }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 5px;
+            transition: 0.2s;
+        }
+
+        .app-icon:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+
+        .nav-bar {
+            height: 50px;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="phone-shell">
+    <div class="screen">
+        <div class="status-bar">
+            <span>NovaOS</span>
+            <span>100% 🔋 12:00</span>
+        </div>
+        
+        <div class="desktop">
+            <div class="app">
+                <div class="app-icon">⚙️</div>
+                <span>Settings</span>
+            </div>
+            <div class="app">
+                <div class="app-icon">🌐</div>
+                <span>Browser</span>
+            </div>
+        </div>
+
+        <div class="nav-bar">
+            <span>◀</span>
+            <span>●</span>
+            <span>■</span>
+        </div>
     </div>
-  </div>
 </div>
+
+</body>
+</html>
